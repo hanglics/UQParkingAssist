@@ -37,7 +37,6 @@ class getRealTimeStatus(Resource):
         location = request.args["loc"]
         userType = request.args["userType"]
         feedContent = getResponse(PARKINGLOTINFO, lot, location, userType)
-        print(feedContent)
         return jsonpify(feedContent)
 
 

@@ -19,7 +19,8 @@ def getUQFeed():
 
 def getResponse(PARKINGLOTINFO, lot, location, userType="S"):
     parkinginfo = parseFeed(PARKINGLOTINFO, location)
-    return getUserSpecificResponse(parkinginfo, userType, lot)
+    res = getUserSpecificResponse(parkinginfo, userType, lot)
+    return res
 
 
 def getUserSpecificResponse(parkinginfo, userType, lot):
@@ -36,14 +37,14 @@ def getUserSpecificResponse(parkinginfo, userType, lot):
             if lot in lotParts:
                 temp.append(each)
             for t in temp:
-                if userType in t["type"]:
+                if userType in t["type"] and t["status"] != "FULL":
                     res.append(t)
         res.sort(key=lambda x: x["distance"])
         return res
     else:
         parkinginfo.sort(key=lambda x: x["distance"])
         for each in parkinginfo:
-            if userType in each["type"]:
+            if userType in each["type"] and each["status"] != "FULL":
                 res.append(each)
         return res
 
