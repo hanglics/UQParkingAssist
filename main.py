@@ -31,6 +31,7 @@ print("Config File Loaded.")
 print("----------------------------------")
 
 
+# loc and userType are required
 class getRealTimeStatus(Resource):
     def get(self):
         lot = request.args["lot"] if "lot" in request.args else ""
