@@ -1,0 +1,257 @@
+[
+  {
+    "lot": "P1",
+    "name": "Warehouse Parking Lot",
+    "type": "C",
+    "address": "-27.494546,153.008509",
+    "building_no": "99",
+    "note": "Casual parking.",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Blue Zone",
+    "rate": {
+      "visitor": "$5 Per Day",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P2",
+    "name": "Warehouse Parking Lot",
+    "type": "C",
+    "address": "-27.494546,153.008509",
+    "building_no": "99",
+    "note": "Casual parking.",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Blue Zone",
+    "rate": {
+      "visitor": "$5 Per Day",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P3",
+    "name": "Multi-level Parking Lot",
+    "type": "P",
+    "address": "-27.494827,153.009805",
+    "note": "Staff permit required",
+    "building_no": "98B",
+    "hours": "00:00 - 00:00",
+    "day": "Monday - Friday",
+    "zone": "Permit Zone",
+    "rate": {
+      "visitor": "$0",
+      "staff": "$0",
+      "student": "$0",
+      "special_note": "Park with permit only"
+    }
+  },
+  {
+    "lot": "P4",
+    "name": "P4 Multi-level Parking Lot",
+    "type": "P",
+    "address": "-27.494922,153.010443",
+    "note": "Staff permit required",
+    "building_no": "98A",
+    "hours": "00:00 - 00:00",
+    "day": "Monday - Friday",
+    "zone": "Permit Zone",
+    "rate": {
+      "visitor": "$0",
+      "staff": "$0",
+      "student": "$0",
+      "special_note": "Park with permit only"
+    }
+  },
+  {
+    "lot": "P7",
+    "name": "Keith Street Parking Lot",
+    "type": "C",
+    "address": "-27.493816,153.009306",
+    "note": "Casual parking.",
+    "building_no": "Outdoor Parking",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Blue Zone",
+    "rate": {
+      "visitor": "$5 Per Day",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P7 UC",
+    "name": "Keith Street Undercover Parking Lot",
+    "type": "C",
+    "address": "-27.492842,153.009723",
+    "note": "Casual parking.",
+    "building_no": "93E",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Grey Zone",
+    "rate": {
+      "visitor": "$2.5 Per Hour",
+      "staff": "$2.5 Per Hour",
+      "student": "$2.5 Per Hour",
+      "special_note": "Maximum $7 Per Day"
+    }
+  },
+  {
+    "lot": "P8 L1",
+    "name": "Playing Field 8 Parking Lot",
+    "type": "C",
+    "address": "-27.493297,153.011577",
+    "note": "Casual parking.",
+    "building_no": "98C",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Blue Zone",
+    "rate": {
+      "visitor": "$5 Per Day",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P8 L2",
+    "name": "Playing Field 8 Parking Lot",
+    "type": "C",
+    "address": "-27.493297,153.011577",
+    "note": "Casual parking.",
+    "building_no": "98C",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Blue Zone",
+    "rate": {
+      "visitor": "$5 Per Day",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P9",
+    "name": "Rugby North Parking Lot",
+    "type": "C",
+    "address": "-27.492369,153.011575",
+    "note": "Casual parking.",
+    "building_no": "Outdoor Parking",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Blue Zone",
+    "rate": {
+      "visitor": "$5 Per Day",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P10 1",
+    "name": "UQ Centre Parking Lot",
+    "type": "C",
+    "address": "-27.495485,153.016334",
+    "note": "Casual parking.",
+    "building_no": "27A",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Red Zone",
+    "rate": {
+      "visitor": "$2.5 Per Hour",
+      "staff": "$2.5 Per Hour",
+      "student": "$2.5 Per Hour",
+      "special_note": "Maximum $25 Per Day"
+    }
+  },
+  {
+    "lot": "P10 2",
+    "name": "Synthetic Playing Fields Parking Lot",
+    "type": "C",
+    "address": "-27.495784,153.017148",
+    "note": "Casual parking.",
+    "building_no": "98E",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Grey Zone",
+    "rate": {
+      "visitor": "$2.5 Per Hour",
+      "staff": "$2.5 Per Hour",
+      "student": "$2.5 Per Hour",
+      "special_note": "Maximum $7 Per Day"
+    }
+  },
+  {
+    "lot": "P10 3",
+    "name": "UQ Sport Aquatic Centre Parking Lot",
+    "type": "C",
+    "address": "-27.495242,153.017173",
+    "note": "Casual parking.",
+    "building_no": "Outdoor Parking",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Red Zone",
+    "rate": {
+      "visitor": "$2.5 Per Hour",
+      "staff": "$2.5 Per Hour",
+      "student": "$2.5 Per Hour",
+      "special_note": "Maximum $25 Per Day"
+    }
+  },
+  {
+    "lot": "P11 L1",
+    "name": "Conifer Knoll Parking Lot",
+    "type": "P",
+    "address": "-27.499702, 153.017985",
+    "note": "Staff permit parking.",
+    "building_no": "98D",
+    "hours": "00:00 - 00:00",
+    "day": "Monday - Friday",
+    "zone": "Permit Zone",
+    "rate": {
+      "visitor": "Not Allowed to Park",
+      "staff": "$0",
+      "student": "Not Allowed to Park",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P11 L2",
+    "name": "Conifer Knoll Parking Lot",
+    "type": "P",
+    "address": "-27.499702, 153.017985",
+    "note": "Staff permit parking.",
+    "building_no": "98D",
+    "hours": "00:00 - 00:00",
+    "day": "Monday - Friday",
+    "zone": "Permit Zone",
+    "rate": {
+      "visitor": "Not Allowed to Park",
+      "staff": "$0",
+      "student": "Not Allowed to Park",
+      "special_note": "Flag-fall"
+    }
+  },
+  {
+    "lot": "P11 L3",
+    "name": "Conifer Knoll Parking Lot",
+    "type": "C",
+    "address": "-27.499702, 153.017985",
+    "note": "Casual parking for UQ staff and students only.",
+    "building_no": "98D",
+    "hours": "07:00 - 21:00",
+    "day": "Monday - Friday",
+    "zone": "Pink Zone",
+    "rate": {
+      "visitor": "Not Allowed to Park",
+      "staff": "$5 Per Day",
+      "student": "$5 Per Day",
+      "special_note": "Flag-fall"
+    }
+  }
+]
