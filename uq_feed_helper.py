@@ -2,12 +2,35 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def getUQFeed(PARKINGLOTINFO):
+def getUQFeed(PARKINGLOTINFO, lot, lotType):
     response = requests.get("https://pg.pf.uq.edu.au")
     if response.status_code == 200:
-        return parseFeed(response.content, PARKINGLOTINFO)
+        return getResponse(response.content, PARKINGLOTINFO, lot, lotType)
     else:
-        getUQFeed(PARKINGLOTINFO)
+        getUQFeed(PARKINGLOTINFO, lot, lotType)
+
+
+def getResponse(content, PARKINGLOTINFO, lot, lotType):
+    parkinginfo = parseFeed(content, PARKINGLOTINFO)
+    res = []
+    if lot != "":
+        for each in parkinginfo:
+            lotParts = []
+            realLot = each["lot"]
+            if " " in realLot:
+                lotParts = realLot.split(" ")
+            else:
+                lotParts.append(realLot)
+            if lot in lotParts:
+                res.append(each)
+        return res
+    elif lotType != "":
+        for item in parkinginfo:
+            if item["type"] == lotType:
+                res.append(item)
+        return res
+    else:
+        return parkinginfo
 
 
 def parseFeed(content, PARKINGLOTINFO):

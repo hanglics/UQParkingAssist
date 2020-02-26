@@ -6,7 +6,7 @@
     "address": "-27.494546,153.008509",
     "building_no": "99",
     "note": "Casual parking.",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Blue Zone",
     "rate": {
@@ -23,7 +23,7 @@
     "address": "-27.494546,153.008509",
     "building_no": "99",
     "note": "Casual parking.",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Blue Zone",
     "rate": {
@@ -40,7 +40,7 @@
     "address": "-27.494827,153.009805",
     "note": "Staff permit required",
     "building_no": "98B",
-    "hours": "00:00 - 00:00",
+    "hours": "00:00-00:00",
     "day": "Monday - Friday",
     "zone": "Permit Zone",
     "rate": {
@@ -57,7 +57,7 @@
     "address": "-27.494922,153.010443",
     "note": "Staff permit required",
     "building_no": "98A",
-    "hours": "00:00 - 00:00",
+    "hours": "00:00-00:00",
     "day": "Monday - Friday",
     "zone": "Permit Zone",
     "rate": {
@@ -74,7 +74,7 @@
     "address": "-27.493816,153.009306",
     "note": "Casual parking.",
     "building_no": "Outdoor Parking",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Blue Zone",
     "rate": {
@@ -91,7 +91,7 @@
     "address": "-27.492842,153.009723",
     "note": "Casual parking.",
     "building_no": "93E",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Grey Zone",
     "rate": {
@@ -108,7 +108,7 @@
     "address": "-27.493297,153.011577",
     "note": "Casual parking.",
     "building_no": "98C",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Blue Zone",
     "rate": {
@@ -125,7 +125,7 @@
     "address": "-27.493297,153.011577",
     "note": "Casual parking.",
     "building_no": "98C",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Blue Zone",
     "rate": {
@@ -142,7 +142,7 @@
     "address": "-27.492369,153.011575",
     "note": "Casual parking.",
     "building_no": "Outdoor Parking",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Blue Zone",
     "rate": {
@@ -159,7 +159,7 @@
     "address": "-27.495485,153.016334",
     "note": "Casual parking.",
     "building_no": "27A",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Red Zone",
     "rate": {
@@ -176,7 +176,7 @@
     "address": "-27.495784,153.017148",
     "note": "Casual parking.",
     "building_no": "98E",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Grey Zone",
     "rate": {
@@ -193,7 +193,7 @@
     "address": "-27.495242,153.017173",
     "note": "Casual parking.",
     "building_no": "Outdoor Parking",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Red Zone",
     "rate": {
@@ -210,7 +210,7 @@
     "address": "-27.499702, 153.017985",
     "note": "Staff permit parking.",
     "building_no": "98D",
-    "hours": "00:00 - 00:00",
+    "hours": "00:00-00:00",
     "day": "Monday - Friday",
     "zone": "Permit Zone",
     "rate": {
@@ -227,7 +227,7 @@
     "address": "-27.499702, 153.017985",
     "note": "Staff permit parking.",
     "building_no": "98D",
-    "hours": "00:00 - 00:00",
+    "hours": "00:00-00:00",
     "day": "Monday - Friday",
     "zone": "Permit Zone",
     "rate": {
@@ -244,7 +244,7 @@
     "address": "-27.499702, 153.017985",
     "note": "Casual parking for UQ staff and students only.",
     "building_no": "98D",
-    "hours": "07:00 - 21:00",
+    "hours": "07:00-21:00",
     "day": "Monday - Friday",
     "zone": "Pink Zone",
     "rate": {

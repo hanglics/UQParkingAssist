@@ -1,0 +1,8 @@
+{
+  "host": "localhost",
+  "port": "6688",
+  "ipv4": true,
+  "ipv6": true,
+  "threads": 6,
+  "url_scheme": "http"
+}
