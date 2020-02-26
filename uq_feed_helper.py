@@ -1,19 +1,31 @@
 import requests
 from bs4 import BeautifulSoup
+import math
+import datetime
+
+UQFEED = None
 
 
-def getUQFeed(PARKINGLOTINFO, lot, lotType):
+def getUQFeed():
+    print("Updating UQ Feed At: " + str(datetime.datetime.now()))
     response = requests.get("https://pg.pf.uq.edu.au")
     if response.status_code == 200:
-        return getResponse(response.content, PARKINGLOTINFO, lot, lotType)
+        global UQFEED
+        UQFEED = response.content
+        return UQFEED
     else:
-        getUQFeed(PARKINGLOTINFO, lot, lotType)
+        getUQFeed()
 
 
-def getResponse(content, PARKINGLOTINFO, lot, lotType):
-    parkinginfo = parseFeed(content, PARKINGLOTINFO)
+def getResponse(PARKINGLOTINFO, lot, location, userType="S"):
+    parkinginfo = parseFeed(PARKINGLOTINFO, location)
+    return getUserSpecificResponse(parkinginfo, userType, lot)
+
+
+def getUserSpecificResponse(parkinginfo, userType, lot):
     res = []
     if lot != "":
+        temp = []
         for each in parkinginfo:
             lotParts = []
             realLot = each["lot"]
@@ -22,21 +34,29 @@ def getResponse(content, PARKINGLOTINFO, lot, lotType):
             else:
                 lotParts.append(realLot)
             if lot in lotParts:
-                res.append(each)
-        return res
-    elif lotType != "":
-        for item in parkinginfo:
-            if item["type"] == lotType:
-                res.append(item)
+                temp.append(each)
+            for t in temp:
+                if userType in t["type"]:
+                    res.append(t)
+        res.sort(key=lambda x: x["distance"])
         return res
     else:
-        return parkinginfo
+        parkinginfo.sort(key=lambda x: x["distance"])
+        for each in parkinginfo:
+            if userType in each["type"]:
+                res.append(each)
+        return res
 
 
-def parseFeed(content, PARKINGLOTINFO):
+def getDistance(my, park):
+    distance = math.sqrt(math.pow((float(my[0]) - float(park[0])), 2) + math.pow((float(my[1]) - float(park[1])), 2))
+    return distance
+
+
+def parseFeed(PARKINGLOTINFO, location):
     data = []
     status = []
-    soup = BeautifulSoup(content, "html.parser")
+    soup = BeautifulSoup(UQFEED, "html.parser")
     table = soup.table
     rows = table.find_all('tr')
     for row in rows:
@@ -54,6 +74,10 @@ def parseFeed(content, PARKINGLOTINFO):
         for stat in status:
             if parking["lot"] == stat[0]:
                 parking["status"] = stat[1]
-            elif parking["lot"] == "P10":
+            elif "P10" in parking["lot"]:
                 parking["status"] = P10Status
+        myGeo = location.split(",")
+        parkGeo = parking["geo"].split(",")
+        distance = getDistance(myGeo, parkGeo)
+        parking["distance"] = distance
     return PARKINGLOTINFO
