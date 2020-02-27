@@ -42,10 +42,10 @@ def getUserSpecificResponse(parkinginfo, userType, lot):
         res.sort(key=lambda x: x["distance"])
         return res
     else:
-        parkinginfo.sort(key=lambda x: x["distance"])
         for each in parkinginfo:
             if userType in each["type"] and each["status"] != "FULL":
                 res.append(each)
+        res.sort(key=lambda x: x["distance"])
         return res
 
 
