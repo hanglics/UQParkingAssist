@@ -8,6 +8,7 @@ from flask_restful import Resource, Api
 from waitress import serve
 
 from uq_feed_helper import *
+from ERRORS import *
 
 scheduler = BackgroundScheduler(daemon=True)
 scheduler.add_job(func=getUQFeed, trigger="interval", seconds=60)
@@ -35,8 +36,15 @@ print("----------------------------------")
 class getRealTimeStatus(Resource):
     def get(self):
         lot = request.args["lot"] if "lot" in request.args else ""
-        location = request.args["loc"]
-        userType = request.args["userType"]
+        if "loc" in request.args:
+            location = request.args["loc"]
+        else:
+            return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
+
+        if "userType" in request.args:
+            userType = request.args["userType"]
+        else:
+            return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
         feedContent = getResponse(PARKINGLOTINFO, lot, location, userType)
         return jsonpify(feedContent)
 
