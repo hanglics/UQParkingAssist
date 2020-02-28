@@ -47,7 +47,9 @@ class getRealTimeStatus(Resource):
         feedContent = getResponse(PARKINGLOTINFO, lot, location, userType)
         if len(feedContent) == 0:
             return jsonpify(NO_PARKING_AVAILABLE)
-        return jsonpify(feedContent)
+        res = jsonpify(feedContent)
+        res.status_code = 200
+        return res
 
 
 api.add_resource(getRealTimeStatus, "/status")
