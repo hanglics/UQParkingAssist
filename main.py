@@ -40,12 +40,13 @@ class getRealTimeStatus(Resource):
             location = request.args["loc"]
         else:
             return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
-
         if "userType" in request.args:
             userType = request.args["userType"]
         else:
             return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
         feedContent = getResponse(PARKINGLOTINFO, lot, location, userType)
+        if len(feedContent) == 0:
+            return jsonpify(NO_PARKING_AVAILABLE)
         return jsonpify(feedContent)
 
 
