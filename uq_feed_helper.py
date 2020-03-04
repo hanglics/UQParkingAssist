@@ -18,12 +18,25 @@ def getUQFeed():
 
 
 def getResponse(PARKINGLOTINFO, lot, location, CONFIG, userType="S"):
-    parkinginfo = parseFeed(PARKINGLOTINFO, location, CONFIG)
-    res = getUserSpecificResponse(parkinginfo, userType, lot)
+    parkinginfo = parseFeed(PARKINGLOTINFO)
+    res = getUserSpecificResponse(parkinginfo, userType, lot, CONFIG, location)
     return res
 
 
-def getUserSpecificResponse(parkinginfo, userType, lot):
+def addDistances(parkinginfo, CONFIG, location):
+    allGeo = []
+    for each in parkinginfo:
+        allGeo.append(each["geo"])
+    geos = "|".join(allGeo)
+    distanceinfo = getDistance(location, geos, CONFIG)
+    distanceinfo = distanceinfo["rows"][0]["elements"]
+    for ind, item in enumerate(parkinginfo):
+        item["distance"] = distanceinfo[ind]["distance"]["value"]
+        item["duration"] = distanceinfo[ind]["duration"]["text"]
+    return parkinginfo
+
+
+def getUserSpecificResponse(parkinginfo, userType, lot, CONFIG, location):
     res = []
     if lot != "":
         temp = []
@@ -37,39 +50,42 @@ def getUserSpecificResponse(parkinginfo, userType, lot):
             if lot in lotParts:
                 temp.append(each)
             for t in temp:
-                if userType in t["type"] and t["status"] != "FULL":
+                if userType in t["type"]:
                     res.append(t)
-        if len(res) > 0:
-            res.sort(key=lambda x: x["distance"])
-        return res
+        parkinfo = addDistances(res, CONFIG, location)
+        if len(parkinfo) > 0:
+            parkinfo.sort(key=lambda x: x["distance"])
+        else:
+            parkinfo = []
+        return parkinfo
     else:
         for each in parkinginfo:
-            if userType in each["type"] and each["status"] != "FULL":
+            if userType in each["type"]:
                 res.append(each)
-        if len(res) > 0:
-            res.sort(key=lambda x: x["distance"])
-        for park in parkinginfo:
+        parkinfo = addDistances(res, CONFIG, location)
+        if len(parkinfo) > 0:
+            parkinfo.sort(key=lambda x: x["distance"])
+        else:
+            return []
+        for park in parkinfo:
             if park["distance"] > 1000:
                 park["distance"] = "{:.1f}".format(float(park["distance"] / 1000)) + " kilometers"
             else:
                 park["distance"] = "{} meters".format(park["distance"])
-        return res
+        return parkinfo
 
 
 def getDistance(my, park, CONFIG):
-    distance = None
-    duration = None
-    response = requests.get("{}?origins={},{}&destinations={},{}&key={}".format(CONFIG["google_map_url"], my[0], my[1], park[0], park[1], CONFIG["google_map_key"]))
+    response = requests.get("{}?origins={}&destinations={}&key={}".format(CONFIG["google_map_url"], my, park, CONFIG["google_map_key"]))
     if response.status_code == 200:
         content = json.loads(response.content)
-        distance = content["rows"][0]["elements"][0]["distance"]["value"]
-        duration = content["rows"][0]["elements"][0]["duration"]["text"]
+        return content
     else:
         getDistance(my, park, CONFIG)
-    return distance, duration
 
 
-def parseFeed(PARKINGLOTINFO, location, CONFIG):
+def parseFeed(PARKINGLOTINFO):
+    res = []
     data = []
     status = []
     soup = BeautifulSoup(UQFEED, "html.parser")
@@ -92,9 +108,7 @@ def parseFeed(PARKINGLOTINFO, location, CONFIG):
                 parking["status"] = stat[1]
             elif "P10" in parking["lot"]:
                 parking["status"] = P10Status
-        myGeo = location.split(",")
-        parkGeo = parking["geo"].split(",")
-        distance, duration = getDistance(myGeo, parkGeo, CONFIG)
-        parking["distance"] = distance
-        parking["duration"] = duration
-    return PARKINGLOTINFO
+    for each in PARKINGLOTINFO:
+        if each["status"] != "FULL":
+            res.append(each)
+    return res
