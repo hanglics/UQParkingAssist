@@ -4,5 +4,7 @@
   "ipv4": true,
   "ipv6": true,
   "threads": 6,
-  "url_scheme": "http"
+  "url_scheme": "http",
+  "google_map_key": "",
+  "google_map_url": "https://maps.googleapis.com/maps/api/distancematrix/json"
 }

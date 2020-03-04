@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import math
+import json
 import datetime
 
 UQFEED = None
@@ -17,8 +17,8 @@ def getUQFeed():
         getUQFeed()
 
 
-def getResponse(PARKINGLOTINFO, lot, location, userType="S"):
-    parkinginfo = parseFeed(PARKINGLOTINFO, location)
+def getResponse(PARKINGLOTINFO, lot, location, CONFIG, userType="S"):
+    parkinginfo = parseFeed(PARKINGLOTINFO, location, CONFIG)
     res = getUserSpecificResponse(parkinginfo, userType, lot)
     return res
 
@@ -48,15 +48,28 @@ def getUserSpecificResponse(parkinginfo, userType, lot):
                 res.append(each)
         if len(res) > 0:
             res.sort(key=lambda x: x["distance"])
+        for park in parkinginfo:
+            if park["distance"] > 1000:
+                park["distance"] = "{:.1f}".format(float(park["distance"] / 1000)) + " kilometers"
+            else:
+                park["distance"] = "{} meters".format(park["distance"])
         return res
 
 
-def getDistance(my, park):
-    distance = math.sqrt(math.pow((float(my[0]) - float(park[0])), 2) + math.pow((float(my[1]) - float(park[1])), 2))
-    return distance
+def getDistance(my, park, CONFIG):
+    distance = None
+    duration = None
+    response = requests.get("{}?origins={},{}&destinations={},{}&key={}".format(CONFIG["google_map_url"], my[0], my[1], park[0], park[1], CONFIG["google_map_key"]))
+    if response.status_code == 200:
+        content = json.loads(response.content)
+        distance = content["rows"][0]["elements"][0]["distance"]["value"]
+        duration = content["rows"][0]["elements"][0]["duration"]["text"]
+    else:
+        getDistance(my, park, CONFIG)
+    return distance, duration
 
 
-def parseFeed(PARKINGLOTINFO, location):
+def parseFeed(PARKINGLOTINFO, location, CONFIG):
     data = []
     status = []
     soup = BeautifulSoup(UQFEED, "html.parser")
@@ -81,6 +94,7 @@ def parseFeed(PARKINGLOTINFO, location):
                 parking["status"] = P10Status
         myGeo = location.split(",")
         parkGeo = parking["geo"].split(",")
-        distance = getDistance(myGeo, parkGeo)
+        distance, duration = getDistance(myGeo, parkGeo, CONFIG)
         parking["distance"] = distance
+        parking["duration"] = duration
     return PARKINGLOTINFO

@@ -1,7 +1,7 @@
 [
   {
     "lot": "P1",
-    "name": "Warehouse Parking Lot",
+    "name": "Warehouse Parking Lot - P1",
     "type": ["C", "P", "V"],
     "geo": "-27.494546,153.008509",
     "building_no": "99",
@@ -18,7 +18,7 @@
   },
   {
     "lot": "P2",
-    "name": "Warehouse Parking Lot",
+    "name": "Warehouse Parking Lot - P2",
     "type": ["C", "P", "V"],
     "geo": "-27.494546,153.008509",
     "building_no": "99",
@@ -35,7 +35,7 @@
   },
   {
     "lot": "P3",
-    "name": "Multi-level Parking Lot",
+    "name": "Multi-level Parking Lot - P3",
     "type": ["P"],
     "geo": "-27.494827,153.009805",
     "note": "Staff permit required",
@@ -52,7 +52,7 @@
   },
   {
     "lot": "P4",
-    "name": "P4 Multi-level Parking Lot",
+    "name": "Multi-level Parking Lot - P4",
     "type": ["P"],
     "geo": "-27.494922,153.010443",
     "note": "Staff permit required",
@@ -69,7 +69,7 @@
   },
   {
     "lot": "P7",
-    "name": "Keith Street Parking Lot",
+    "name": "Keith Street Parking Lot - P7",
     "type": ["C", "P", "V"],
     "geo": "-27.493816,153.009306",
     "note": "Casual parking.",
@@ -86,7 +86,7 @@
   },
   {
     "lot": "P7 UC",
-    "name": "Keith Street Undercover Parking Lot",
+    "name": "Keith Street Undercover Parking Lot - P7 UC",
     "type": ["C", "P", "V"],
     "geo": "-27.492842,153.009723",
     "note": "Casual parking.",
@@ -103,7 +103,7 @@
   },
   {
     "lot": "P8 L1",
-    "name": "Playing Field 8 Parking Lot",
+    "name": "Playing Field 8 Parking Lot - P8 L1",
     "type": ["C", "P", "V"],
     "geo": "-27.493297,153.011577",
     "note": "Casual parking.",
@@ -120,7 +120,7 @@
   },
   {
     "lot": "P8 L2",
-    "name": "Playing Field 8 Parking Lot",
+    "name": "Playing Field 8 Parking Lot - P8 L2",
     "type": ["C", "P", "V"],
     "geo": "-27.493297,153.011577",
     "note": "Casual parking.",
@@ -137,7 +137,7 @@
   },
   {
     "lot": "P9",
-    "name": "Rugby North Parking Lot",
+    "name": "Rugby North Parking Lot - P9",
     "type": ["C", "P", "V"],
     "geo": "-27.492369,153.011575",
     "note": "Casual parking.",
@@ -154,7 +154,7 @@
   },
   {
     "lot": "P10 1",
-    "name": "UQ Centre Parking Lot",
+    "name": "UQ Centre Parking Lot - P10 1",
     "type": ["C", "P", "V"],
     "geo": "-27.495485,153.016334",
     "note": "Casual parking.",
@@ -171,7 +171,7 @@
   },
   {
     "lot": "P10 2",
-    "name": "Synthetic Playing Fields Parking Lot",
+    "name": "Synthetic Playing Fields Parking Lot - P10 2",
     "type": ["C", "P", "V"],
     "geo": "-27.495784,153.017148",
     "note": "Casual parking.",
@@ -188,7 +188,7 @@
   },
   {
     "lot": "P10 3",
-    "name": "UQ Sport Aquatic Centre Parking Lot",
+    "name": "UQ Sport Aquatic Centre Parking Lot - P10 3",
     "type": ["C", "P", "V"],
     "geo": "-27.495242,153.017173",
     "note": "Casual parking.",
@@ -205,7 +205,7 @@
   },
   {
     "lot": "P11 L1",
-    "name": "Conifer Knoll Parking Lot",
+    "name": "Conifer Knoll Parking Lot - P11 L1",
     "type": ["P"],
     "geo": "-27.499702,153.017985",
     "note": "Staff permit parking.",
@@ -222,7 +222,7 @@
   },
   {
     "lot": "P11 L2",
-    "name": "Conifer Knoll Parking Lot",
+    "name": "Conifer Knoll Parking Lot - P11 L2",
     "type": ["P"],
     "geo": "-27.499702,153.017985",
     "note": "Staff permit parking.",
@@ -239,7 +239,7 @@
   },
   {
     "lot": "P11 L3",
-    "name": "Conifer Knoll Parking Lot",
+    "name": "Conifer Knoll Parking Lot - P11 L3",
     "type": ["C", "P"],
     "geo": "-27.499702,153.017985",
     "note": "Casual parking for UQ staff and students only.",
