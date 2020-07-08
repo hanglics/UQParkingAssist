@@ -35,21 +35,35 @@ print("----------------------------------")
 # loc and userType are required
 class getRealTimeStatus(Resource):
     def get(self):
-        lot = request.args["lot"] if "lot" in request.args else ""
-        if "loc" in request.args:
-            location = request.args["loc"]
+        if "lot" not in request.args:
+            if "loc" in request.args:
+                location = request.args["loc"]
+            else:
+                return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
+            if "userType" in request.args:
+                userType = request.args["userType"]
+            else:
+                return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
+            feedContent = getResponse(PARKINGLOTINFO, "", location, CONFIG, userType)
+            if len(feedContent) == 0:
+                return jsonpify(NO_PARKING_AVAILABLE)
+            res = jsonpify(feedContent)
+            res.status_code = 200
+            return res
+        elif "lot" in request.args:
+            if "loc" in request.args:
+                location = request.args["loc"]
+            else:
+                return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
+            lot = request.args["lot"]
+            parkingInfo = getSpecificParkingInfo(PARKINGLOTINFO, lot, CONFIG, location)
+            res = jsonpify(parkingInfo)
+            res.status_code = 200
+            return res
         else:
             return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
-        if "userType" in request.args:
-            userType = request.args["userType"]
-        else:
-            return jsonpify(MISSING_QUERY_PARAMETER_ERROR)
-        feedContent = getResponse(PARKINGLOTINFO, lot, location, CONFIG, userType)
-        if len(feedContent) == 0:
-            return jsonpify(NO_PARKING_AVAILABLE)
-        res = jsonpify(feedContent)
-        res.status_code = 200
-        return res
+
+
 
 
 api.add_resource(getRealTimeStatus, "/status")

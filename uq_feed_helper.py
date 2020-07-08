@@ -17,6 +17,23 @@ def getUQFeed():
         getUQFeed()
 
 
+def getSpecificParkingInfo(PARKINGLOTINFO, lot, CONFIG, location):
+    parkinginfo = parseFeed(PARKINGLOTINFO)
+    lot = ''.join(lot.split())
+    res = []
+    for each in parkinginfo:
+        lotInfo = each["lot"]
+        if " " in lotInfo:
+            splited = lotInfo.split(" ")
+            if lot == splited[0]:
+                res.append(each)
+        else:
+            if lot == lotInfo:
+                res.append(each)
+    parkinfo = addDistances(res, CONFIG, location)
+    return parkinfo
+
+
 def getResponse(PARKINGLOTINFO, lot, location, CONFIG, userType="S"):
     parkinginfo = parseFeed(PARKINGLOTINFO)
     res = getUserSpecificResponse(parkinginfo, userType, lot, CONFIG, location)
